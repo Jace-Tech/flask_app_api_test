@@ -3,7 +3,7 @@ from functools import wraps
 def response(msg: str, data=None, success=True):
   return { "message": msg, "data": data, "success": success }
 
-def get_object(obj: dict):
+def get_object(obj):
   new_data = {}
   print("ITER:", obj.items())
   for key, val in obj.items():
@@ -13,7 +13,7 @@ def get_object(obj: dict):
   print("NEW_ITEM =",new_data)
   return new_data
 
-def get_object_list(seq: list[dict]):
+def get_object_list(seq):
   return [get_object(data) for data in seq]
 
 def catch_exception(fn):
