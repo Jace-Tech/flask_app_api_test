@@ -5,12 +5,8 @@ def response(msg: str, data=None, success=True):
 
 def get_object(obj):
   new_data = {}
-  print("ITER:", obj.items())
   for key, val in obj.items():
-    print("KEY:", key, "VALUE:", val)
     new_data[key] = str(val)
-
-  print("NEW_ITEM =",new_data)
   return new_data
 
 def get_object_list(seq):

@@ -2,7 +2,6 @@ from flask import Flask
 from dotenv import dotenv_values
 
 ENV = dotenv_values()
-print("ENV", ENV)
 
 def create_app():
   app = Flask(__name__)

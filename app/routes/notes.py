@@ -17,8 +17,6 @@ def get_all_notes():
 def create_notes():
   data = request.json
   result = Note.insert_one(data)
-
   if not result.acknowledged: raise Exception("Failed to create note")
-
   note = Note.find_one({"_id": result.inserted_id})
   return response("All notes", get_object(note))
