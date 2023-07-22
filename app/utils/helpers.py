@@ -11,12 +11,3 @@ def get_object(obj):
 
 def get_object_list(seq):
   return [get_object(data) for data in seq]
-
-def catch_exception(fn):
-  @wraps(fn) 
-  def wrapper(*args, **kwargs):
-    try:
-      return fn(*args, **kwargs)
-    except Exception as e:
-      return response(str(e), None, False)
-  return wrapper

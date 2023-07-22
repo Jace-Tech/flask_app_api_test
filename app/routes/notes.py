@@ -1,8 +1,21 @@
-from flask import Blueprint, request
-from ..database import *
-from ..utils.helpers import response, catch_exception, get_object_list, get_object
+from flask import Blueprint, request, current_app
+from ..db_mongo import *
+from ..utils.helpers import response, get_object_list, get_object
+from ..utils.errors import catch_exception, CustomRequestError
+from ..utils.mailer import send_mail
+
 
 notes = Blueprint("notes", __name__)
+
+
+@notes.post("/send")
+@catch_exception
+def email():
+  data = request.get_json()
+  if not send_mail(current_app, data.get('subject'), [data.get('email')], data.get('message')):
+    raise CustomRequestError("Could not send", 500)
+  return response("Message sent", None)
+
 
 @notes.get("/")
 @catch_exception

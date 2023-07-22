@@ -17,5 +17,4 @@ def create_db():
 
 
 # MODELS
-
 Note = create_db()['note']
