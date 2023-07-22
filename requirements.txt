@@ -3,4 +3,4 @@ pymongo==4.4.1
 python-dotenv>=0.21.0
 gunicorn>=21.0.0
 Flask-Mail>=0.9.1
-mysql-connector-python>=8.1.0
+mysql-connector-python>=8.0.33
