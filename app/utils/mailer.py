@@ -4,13 +4,10 @@ from dotenv import dotenv_values
 
 ENV = dotenv_values() 
 
-def send_mail(app: Flask, subject: str, recipients: list[str], body: str, is_html: bool = False):
+def send_mail(app: Flask, subject: str, recipients, body: str, is_html: bool = False):
   """
     Sends email message to recipients
   """
-  print("SUB:", subject)
-  print("REC:", recipients)
-  print("BODY:", body)
   mail = Mail(app)
   try:
     sender = (ENV['APP_NAME'], ENV["MAIL_USERNAME"])
