@@ -1,25 +1,18 @@
 
 ## Setup
-
-### Prerequisites
-
-- Python 3.x
-- Flask web framework
-- Flask-JWT-Extended for JWT authentication
-- Flask-CORS for handling CORS issues
-
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Jace-Tech/plant-nest-backend.git
+   git clone https://github.com/Jace-Tech/flask_setup.git <server>
    ```
+   > Replace `<server>` with the name of your project
 
 2. Navigate to the project directory:
 
    ```bash
-   cd plant-nest-backend
+   cd server
    ```
 
 3. Create a virtual enviroment
