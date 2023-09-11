@@ -1,12 +1,17 @@
 from flask import Flask
 from dotenv import dotenv_values
+from flask_cors import CORS
 from .utils.helpers import response
 
 ENV = dotenv_values()
 
 def create_app():
   app = Flask(__name__)
+  
+  # ***** MIDDLEWARES *****
+  CORS(app, origins="*")
 
+  
   # ***** CONFIGS *****
   
   # APP CONFIGS
@@ -21,6 +26,8 @@ def create_app():
   app.config['MAIL_PASSWORD'] = ENV["MAIL_PASSWORD"]
 
   # ***** ROUTES *****
+
+  # EXAMPLE ROUTES
   from .routes.notes import notes
   app.register_blueprint(notes, url_prefix="/api/v1/notes")
 
@@ -29,11 +36,11 @@ def create_app():
 
   # ERROR ROUTES
   app.errorhandler(404)
-  def invalid_route():
+  def invalid_route(error):
     return response("Invalid route", None, False)
   
-  app.errorhandler(500)
-  def server_error():
+  app.errorhandler(Exception)
+  def server_error(error):
     return response("Something went wrong, please try again", None, False)
 
   return app

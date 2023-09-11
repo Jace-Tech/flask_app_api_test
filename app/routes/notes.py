@@ -1,5 +1,4 @@
 from flask import Blueprint, request, current_app
-from ..db_mongo import *
 from ..utils.helpers import response, get_object_list, get_object
 from ..utils.errors import catch_exception, CustomRequestError
 from ..utils.mailer import send_mail
